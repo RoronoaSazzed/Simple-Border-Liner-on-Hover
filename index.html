@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap"
+      rel="stylesheet"
+    />
+    <title>Border Linear Animation</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Fuzzy Bubbles", cursive;
+      }
+
+      .parentDiv {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      .box {
+        width: 450px;
+        height: 450px;
+        background-color: lightcoral;
+        position: relative;
+        display: grid;
+        place-items: center;
+        color: white;
+        box-shadow: 0px 0px 100px -5px #f080807e;
+      }
+
+      #borderSVG {
+        stroke-dasharray: 796px;
+        stroke-dashoffset: 796px;
+        transition: 300ms;
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+      }
+
+      #borderLinear path {
+        stroke-width: 1px;
+        stroke: purple;
+      }
+
+      .box:hover #borderSVG {
+        stroke-dashoffset: 0px;
+      }
+
+      .imgContent img {
+        width: inherit;
+        height: inherit;
+        object-fit: cover;
+      }
+
+      /* Unnecessary Stylings */
+
+      h3 {
+        margin: 30px 0px;
+        line-height: 1.2em;
+        font-size: 30px;
+      }
+
+      .cardContent {
+        padding: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parentDiv">
+      <div class="box textContent">
+        <div class="cardContent">
+          <h3>Sample Title</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Necessitatibus, sed!
+          </p>
+        </div>
+        <svg
+          id="borderSVG"
+          width="100%"
+          min-height="0"
+          viewBox="0 0 200 200"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="borderLinear">
+            <path d="M0.5 0.5H199.5V199.5H0.5V0.5Z" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="box imgContent">
+        <img src="https://wallpaperaccess.com/full/4779676.jpg" alt="" />
+
+        <svg
+          id="borderSVG"
+          width="100%"
+          min-height="0"
+          viewBox="0 0 200 200"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="borderLinear">
+            <path d="M0.5 0.5H199.5V199.5H0.5V0.5Z" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </body>
+</html>
