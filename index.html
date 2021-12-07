@@ -25,11 +25,13 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
+        background-color: #101221;
       }
 
       .box {
         width: 450px;
         height: 450px;
+        aspect-ratio: 1 / 1;
         background-color: lightcoral;
         position: relative;
         display: grid;
@@ -38,29 +40,39 @@
         box-shadow: 0px 0px 100px -5px #f080807e;
       }
 
-      #borderSVG {
-        stroke-dasharray: 796px;
-        stroke-dashoffset: 796px;
+      #preBorderSVG,
+      #postBorderSVG {
         transition: 300ms;
         position: absolute;
         z-index: 3;
-        top: 0;
-        left: 0;
+        top: -5%;
+        left: 5%;
         pointer-events: none;
+        transform: rotate(180deg);
       }
 
-      #borderLinear path {
+      #postBorderSVG {
+        stroke-dasharray: 796px;
+        stroke-dashoffset: 796px;
+      }
+
+      #preBorderLinear path {
         stroke-width: 1px;
-        stroke: purple;
+        stroke: white;
       }
 
-      .box:hover #borderSVG {
+      #postBorderLinear path {
+        stroke-width: 1px;
+        stroke: red;
+      }
+
+      .box:hover #postBorderSVG {
         stroke-dashoffset: 0px;
       }
 
       .imgContent img {
-        width: inherit;
-        height: inherit;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
       }
 
@@ -75,6 +87,17 @@
       .cardContent {
         padding: 30px;
       }
+
+      @media (min-width: 320px) and (max-width: 480px) {
+        .parentDiv {
+          flex-direction: column;
+        }
+
+        .box {
+          width: 80%;
+          height: auto;
+        }
+      }
     </style>
   </head>
   <body>
@@ -88,14 +111,27 @@
           </p>
         </div>
         <svg
-          id="borderSVG"
+          id="preBorderSVG"
           width="100%"
           min-height="0"
           viewBox="0 0 200 200"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g id="borderLinear">
+          <g id="preBorderLinear">
+            <path d="M0.5 0.5H199.5V199.5H0.5V0.5Z" />
+          </g>
+        </svg>
+
+        <svg
+          id="postBorderSVG"
+          width="100%"
+          min-height="0"
+          viewBox="0 0 200 200"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="postBorderLinear">
             <path d="M0.5 0.5H199.5V199.5H0.5V0.5Z" />
           </g>
         </svg>
@@ -105,14 +141,27 @@
         <img src="https://wallpaperaccess.com/full/4779676.jpg" alt="" />
 
         <svg
-          id="borderSVG"
+          id="preBorderSVG"
           width="100%"
           min-height="0"
           viewBox="0 0 200 200"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g id="borderLinear">
+          <g id="preBorderLinear">
+            <path d="M0.5 0.5H199.5V199.5H0.5V0.5Z" />
+          </g>
+        </svg>
+
+        <svg
+          id="postBorderSVG"
+          width="100%"
+          min-height="0"
+          viewBox="0 0 200 200"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="postBorderLinear">
             <path d="M0.5 0.5H199.5V199.5H0.5V0.5Z" />
           </g>
         </svg>
